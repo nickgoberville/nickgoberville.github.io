@@ -2,17 +2,23 @@
 
 - type: github
   icon: "fab fa-github"
+  url: "https://github.com/nickgoberville"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: linkedin
+  icon: "fab fa-linkedin"   # icons powered by <https://fontawesome.com/>
+  url:  "https://www.linkedin.com/in/nick-goberville-5814a9125/"                  # Fill with your Linkedin homepage
+
+- type: google-scholar
+  icon: "fab fa-google-scholar"   # icons powered by <https://fontawesome.com/>
+  url:  "https://scholar.google.com/citations?user=BGCbkEUAAAAJ&hl=en&oi=ao"    
 
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
-
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
+  url: "nickgoberville21@gmail.com"
+# - type: rss
+#   icon: "fas fa-rss"
+#   noblank: true
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
