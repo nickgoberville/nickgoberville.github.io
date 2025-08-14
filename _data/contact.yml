@@ -16,6 +16,7 @@
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
   url: "nickgoberville21@gmail.com"
+  
 # - type: rss
 #   icon: "fas fa-rss"
 #   noblank: true
