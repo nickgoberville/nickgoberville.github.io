@@ -1,0 +1,26 @@
+# _data/articles.yml (Corrected Version)
+
+- title: "Nick Goberville Joins AVTC Team At Argonne"
+  publication: "AVTC Series"
+  url: "https://avtcseries.org/news-media/nick-goberville-joins-avtc-team-at-argonne/"
+  thumbnail: "https://media.licdn.com/dms/image/sync/v2/C5627AQHqIBccCP9RqQ/articleshare-shrink_1280_800/articleshare-shrink_1280_800/0/1754587355250?e=1755810000&v=beta&t=dWWgvFBaJep8769SvbNMw3SeUI9WMfDhS15rUzpZZBw"
+  description: "Nick Goberville recently joined Argonne National Laboratory..."
+  posts:
+    - template-post
+    - text-and-typo
+
+- title: "Autonomous shuttle cruises around WMU on trial run"
+  publication: "Wood TV"
+  url: "https://www.woodtv.com/news/kzoo-and-bc/autonomous-shuttle-cruises-around-wmu-on-trial-run/"
+  thumbnail: "https://www.mlive.com/resizer/noDyqH0jT2DCKx-eAoYcA_GZEfk=/1280x0/smart/arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/YQ7FPT657BCL5A7C6Y4GCJG2RE.jpg"
+  description: "KALAMAZOO, Mich. (WOOD) — A self-driving vehicle will soon be taking passengers around the campus of Western Michigan University."
+  posts:
+    - michigan-mobility-challenge-1
+
+- title: "When it rains, it stalls: WMU team studies weather impacts on autonomous vehicle technology"
+  publication: "WMU News"
+  url: "https://wmich.edu/news/2020/11/60422"
+  thumbnail: "https://files.wmich.edu/s3fs-public/styles/3_2/public/images/u2820/2020/15-DSC_9059.jpg?h=790be497&itok=adzqi5A1"
+  description: "KALAMAZOO, Mich.—Autonomous technology is driving the future of transportation worldwide. But what good are self-driving cars if they can only operate in perfect weather? A team at Western Michigan University is leading an effort to develop software that will keep systems running in all conditions."
+  posts:
+    - kia-data-collection

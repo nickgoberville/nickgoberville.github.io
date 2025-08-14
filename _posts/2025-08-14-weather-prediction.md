@@ -1,0 +1,36 @@
+---
+title: Weather Prediction using Automotive Sensors
+date: 2023-04-10
+categories: [Projects]
+tags: [sensors,data collection,ai,anl]     # TAG names should always be lowercase
+# image:
+#   path: assets/img/ecocar.jpg
+#   alt: Leading a discussion to EcoCAR EV Challenge stakeholders, establishing the scope of the series.
+---
+
+More details coming soon...
+
+This project was completed during my role as a Connected and Automated Vehicle Research Engineer at [Argonne National Lab](https://www.anl.gov/).
+
+
+# Media
+
+{% comment %}
+Get this post's unique identifier from its filename.
+For "2025-08-14-post-4.md", page.slug will be "post-4".
+{% endcomment %}
+{% assign post_slug = page.slug %}
+
+{% comment %}
+Loop through the NEW data file: site.data.articles
+{% endcomment %}
+{% for article_data in site.data.articles %}
+
+{% comment %}
+    Check if the article's 'posts' LIST CONTAINS this page's slug.
+{% endcomment %}
+{% if article_data.posts contains post_slug %}
+{% include article_list_item2.html article=article_data %}
+{% endif %}
+
+{% endfor %}
