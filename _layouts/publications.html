@@ -1,0 +1,18 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<div class="card-deck">
+{% for pub in site.data.publications %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ pub.title }}</h5>
+      <p class="card-text">{{ pub.authors }}</p>
+      <p class="card-text"><small class="text-muted">{{ pub.venue }}, {{ pub.year }}</small></p>
+      <a href="https://doi.org/{{ pub.doi }}" class="btn btn-primary" target="_blank">Read Paper</a>
+    </div>
+  </div>
+{% endfor %}
+</div>

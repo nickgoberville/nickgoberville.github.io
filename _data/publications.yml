@@ -1,0 +1,55 @@
+- title: "Modular Dynamometer Testing Framework to Evaluate Energy Impacts of Longitudinal Automated Driving Systems"
+  authors: "Goberville NA, Hamilton K, Di Russo M, Jeong J, Das D, Ord D, Misra P, Crain T"
+  venue: "SAE Technical Paper"
+  year: 2025
+  doi: "10.4271/2025-01-8065"
+- title: "Portable Track-Based Connected Intersection Testing System for Connected and Automated Vehicles"
+  authors: "Hamilton K, Misra P, Ord D, Goberville NA, Crain T, Marwadi S"
+  venue: "SAE Technical Paper"
+  year: 2025
+  doi: "10.4271/2025-01-8062"
+- title: "Snow Coverage Estimation Using Camera Data for Automated Driving Applications"
+  authors: "Goberville NA, Prins KR, Kadav P, Walker CL, Siems-Anderson AR, and Asher ZD"
+  venue: "Transportation Research Interdisciplinary Perspectives 18"
+  year: 2023
+  doi: "10.1016/j.trip.2023.100766"
+- title: "Road Snow Coverage Estimation Using Camera and Weather Infrastructure Sensor Inputs"
+  authors: "Kadav P, Goberville NA, Prins KR, Walker CL, Siems-Anderson AR, and Asher ZD"
+  venue: "SAE Technical Paper"
+  year: 2023
+  doi: "10.4271/2023-01-0057"
+- title: "Automated Vehicle Perception Sensor Evaluation in Real-World Weather Conditions"
+  authors: "Goberville NA, Ahmed S, Iliev S, and Pervan B"
+  venue: "SAE Technical Paper"
+  year: 2023
+  doi: "10.4271/2023-01-0056"
+- title: "Tire Track Identification: A Method for Drivable Region Detection in Conditions of Snow-Occluded Lane Lines"
+  authors: "Goberville NA, Kadav P, and Asher ZD"
+  venue: "SAE International Journal of Advances and Current Practices in Mobility 4 (5): 1590–97"
+  year: 2022
+  doi: "10.4271/2022-01-0083"
+- title: "Development of an Energy Efficient and Cost Effective Autonomous Vehicle Research Platform"
+  authors: "Brown NE, Rojas JF, Goberville NA, Alzubi H, AlRousan Q, et. al."
+  venue: "MDPI - Sensors 22(16), 5999"
+  year: 2022
+  doi: "10.3390/s22165999"
+- title: "No Cost Autonomous Vehicle Advancements in CARLA through ROS"
+  authors: "Vivan GP, Goberville N, Asher Z, Brown N, Rojas J"
+  venue: "SAE Technical Paper"
+  year: 2021
+  doi: "10.4271/2021-01-0106"
+- title: "Analysis of LiDAR and Camera Data in Real-World Weather Conditions for Autonomous Vehicle Operations"
+  authors: "Goberville N, El-Yabroudi M, Omwanas M, Rojas J, Meyer R, Asher ZD, Abdel-Qader I"
+  venue: "SAE International Journal of Advances and Current Practices in Mobility, V129-99EJ"
+  year: 2020
+  doi: "10.4271/2020-01-0093"
+- title: "Using Reinforcement Learning and Simulation to Develop Autonomous Vehicle Control Strategies"
+  authors: "Navarro A, Genc S, Rangarajan P, Khalil R, Goberville N, Rojas J, Asher ZD"
+  venue: "SAE Technical Paper"
+  year: 2020
+  doi: "10.4271/2020-01-0737"
+- title: "Observer for Faulty Perception Correction in Autonomous Vehicles"
+  authors: "Omwansa M, Meyer R, Asher ZD, Goberville N"
+  venue: "SAE Technical Paper"
+  year: 2020
+  doi: "10.4271/2020-01-0694"
