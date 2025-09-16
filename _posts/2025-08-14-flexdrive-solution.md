@@ -29,7 +29,7 @@ My key technical contributions included:
 
 * **Hardware & Software Abstraction:** I developed a core application logic layer that communicates with the Comma.ai hardware, abstracting the vehicle's low-level CAN bus messages into a standardized interface. This allows new control algorithms, whether written as a **Simulink** model or a **ROS** node, to be deployed without custom porting.
 * **Vehicle-in-the-Loop (VIL) Framework:** The system was designed as a VIL platform, allowing for seamless integration of virtual environments with a physical vehicle. It enabled me to test different controllers for Adaptive Cruise Control (ACC) by commanding the vehicle's throttle and braking.
-* **Comma.ai Pedal Integration:** On an electric vehicle that supports [One-Pedal Driving](https://insideevs.com/features/742815/one-pedal-driving-ev-explained/), I implemented the **Comma.ai Pedal** solution. This specialized hardware allowed me to control acceleration and deceleration by directly modulating the vehicle's accelerator pedal, which was critical for developing the Longitudinal Automated Replay System (LARS) and enabling repeatable testing. You can read more about the LARS project [here](/_posts/2025-08-14-lars.md).
+* **Comma.ai Pedal Integration:** On an electric vehicle that supports [One-Pedal Driving](https://insideevs.com/features/742815/one-pedal-driving-ev-explained/), I implemented the **Comma.ai Pedal** solution. This specialized hardware allowed me to control acceleration and deceleration by directly modulating the vehicle's accelerator pedal, which was critical for developing the Longitudinal Automated Replay System (LARS) and enabling repeatable testing. You can read more about the LARS project [here](../../posts/lars).
 
 ## Impact & Results
 
