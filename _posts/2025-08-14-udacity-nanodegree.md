@@ -18,13 +18,16 @@ As a representative example of my work in this program, the "Advanced Lane Findi
 
 ## The Technical Solution
 
-The "Advanced Lane Finding" project required a multi-step computer vision pipeline. My solution, implemented primarily in Python and OpenCV, included the following key steps:
+The "Advanced Lane Finding" project required a multi-step computer vision pipeline (see [code](https://github.com/nickgoberville/Udacity-CarND/tree/master/CarND-LaneLines-P2)). My solution, implemented primarily in Python and OpenCV, included the following key steps:
 
 * **Camera Calibration:** To correct for lens distortion and ensure accurate measurements of 3D space from 2D images, I performed camera calibration using a set of 20 checkerboard images. This process generated transformation matrices (`mtx` and `dist`) to undistort the video frames.
 * **Color & Gradient Thresholding:** I developed a robust image thresholding pipeline by combining thresholds from multiple color spaces (RGB, HSV, and HLS) with gradient information (Canny edge detection). A custom GUI was developed to fine-tune these thresholds, allowing for reliable lane line detection across diverse video frames.
 * **Perspective Transformation:** Using the `cv2.warpPerspective()` function, I transformed the distorted camera images into a "birds-eye view" perspective. This provided a top-down, rectified view of the road, which is essential for accurate spatial measurements.
 * **Lane Pixel Detection:** After the perspective transform, I used a sliding window technique to detect lane pixels and fit a polynomial to the pixel points using `numpy.polyfit()`. To optimize performance for subsequent frames, I implemented a more efficient search method that focused on a smaller region around the previously detected polynomial.
 * **Real-World Metrics:** The final pipeline converted the pixel-based lane polynomial into real-world metrics. This enabled the calculation of the lane's radius of curvature and the vehicle's position relative to the center of the lane, which are critical inputs for a planning and control stack.
+
+<iframe src="https://drive.google.com/file/d/11E4O-IYwrqVrWHbpEr6y5l2i7Suvoeo8/preview" width="640" height="480" allow="autoplay"></iframe>
+*Demonstration of my lane detection algorithm using opencv and python.*
 
 ## Impact & Results
 
