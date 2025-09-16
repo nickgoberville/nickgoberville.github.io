@@ -1,6 +1,6 @@
 ---
 layout: publications
-title: Publications
+title: Published Work
 icon: fas fa-book
 order: 3
 ---
