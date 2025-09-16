@@ -1,5 +1,5 @@
 ---
-title: Architected a Comma.ai-based VIL Test Platform for Rapid Controller Deployment
+title: Designed & Built a Comma.ai-based VIL Test Platform for Rapid Controller Deployment
 description: "Developed a vehicle-agnostic software framework fully integrated with Comma.ai hardware, enabling rapid deployment and testing of new autonomous control algorithms on a physical vehicle."
 date: 2024-09-17
 categories: [System Architecture]
