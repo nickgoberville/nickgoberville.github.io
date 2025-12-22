@@ -1,0 +1,143 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Nick Goberville</title>
+  <subtitle>The professional portfolio of Nick Goberville,  a Ph.D. engineer and systems architect. Explore  projects focused on designing simple, robust, and  scalable solutions for complex technical challenges,  from pure software applications to hardware-software integration.</subtitle>
+  <updated>2025-09-16T13:41:52-05:00</updated>
+  <author>
+    <name>Nick Goberville</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 Nick Goberville </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Architected a Modular Replay System (LARS) for Automated Vehicle Testing</title>
+    <link href="http://localhost:4000/posts/lars/" rel="alternate" type="text/html" title="Architected a Modular Replay System (LARS) for Automated Vehicle Testing" />
+    <published>2025-05-08T00:00:00-05:00</published>
+  
+    <updated>2025-09-15T19:18:27-05:00</updated>
+  
+    <id>http://localhost:4000/posts/lars/</id>
+    <content type="text/html" src="http://localhost:4000/posts/lars/" />
+    <author>
+      <name>Nick Goberville</name>
+    </author>
+
+  
+    
+    <category term="System Architecture" />
+    
+  
+
+  <summary>Developed and deployed a vehicle-agnostic system to enable repeatable and consistent testing of automated controllers across multiple platforms.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Deployed a VIL Test Platform to CARB facility for the EcoCAR Dynamometer Event</title>
+    <link href="http://localhost:4000/posts/vil-dyno-testing/" rel="alternate" type="text/html" title="Deployed a VIL Test Platform to CARB facility for the EcoCAR Dynamometer Event" />
+    <published>2025-04-04T00:00:00-05:00</published>
+  
+    <updated>2025-09-15T19:18:27-05:00</updated>
+  
+    <id>http://localhost:4000/posts/vil-dyno-testing/</id>
+    <content type="text/html" src="http://localhost:4000/posts/vil-dyno-testing/" />
+    <author>
+      <name>Nick Goberville</name>
+    </author>
+
+  
+    
+    <category term="System Architecture" />
+    
+  
+
+  <summary>Led the design and implementation of a standardized Vehicle-in-the-Loop (VIL) communication interface, enabling repeatable and collaborative dynamometer testing for 13 university teams.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Architected a Comma.ai-based VIL Test Platform for Rapid Controller Deployment</title>
+    <link href="http://localhost:4000/posts/flexdrive-solution/" rel="alternate" type="text/html" title="Architected a Comma.ai-based VIL Test Platform for Rapid Controller Deployment" />
+    <published>2024-09-17T00:00:00-05:00</published>
+  
+    <updated>2024-09-17T00:00:00-05:00</updated>
+  
+    <id>http://localhost:4000/posts/flexdrive-solution/</id>
+    <content type="text/html" src="http://localhost:4000/posts/flexdrive-solution/" />
+    <author>
+      <name>Nick Goberville</name>
+    </author>
+
+  
+    
+    <category term="System Architecture" />
+    
+  
+
+  <summary>Developed a vehicle-agnostic software framework fully integrated with Comma.ai hardware, enabling rapid deployment and testing of new autonomous control algorithms on a physical vehicle.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Bakery Pricing Tool</title>
+    <link href="http://localhost:4000/posts/bakery-pricing-tool/" rel="alternate" type="text/html" title="Bakery Pricing Tool" />
+    <published>2024-09-16T00:00:00-05:00</published>
+  
+    <updated>2024-09-16T00:00:00-05:00</updated>
+  
+    <id>http://localhost:4000/posts/bakery-pricing-tool/</id>
+    <content type="text/html" src="http://localhost:4000/posts/bakery-pricing-tool/" />
+    <author>
+      <name>Nick Goberville</name>
+    </author>
+
+  
+    
+    <category term="System Architecture" />
+    
+  
+
+  <summary>Yes, you read that right. I developed a full-stack web application to accurately calculate profit margins for baked goods, featuring a SQLite backend, a Python-based calculation engine, and a Streamlit front-end.</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Characterized Sensor Performance in Real-World Weather Conditions</title>
+    <link href="http://localhost:4000/posts/sensor-characterization/" rel="alternate" type="text/html" title="Characterized Sensor Performance in Real-World Weather Conditions" />
+    <published>2023-01-15T00:00:00-06:00</published>
+  
+    <updated>2025-09-15T19:18:27-05:00</updated>
+  
+    <id>http://localhost:4000/posts/sensor-characterization/</id>
+    <content type="text/html" src="http://localhost:4000/posts/sensor-characterization/" />
+    <author>
+      <name>Nick Goberville</name>
+    </author>
+
+  
+    
+    <category term="System Architecture" />
+    
+  
+
+  <summary>Designed a static sensor array and developed a data logging and analysis pipeline to quantify the effects of weather on LiDAR, camera, and radar sensors.</summary>
+
+  </entry>
+
+</feed>
+
+

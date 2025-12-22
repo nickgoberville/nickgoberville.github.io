@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Theme (Robotics / Hardware) - Default */
+    --background: 220 5% 8%; /* Warm Zinc Dark */
+    --foreground: 40 5% 90%;
+    --card: 220 5% 10%;
+    --card-foreground: 40 5% 90%;
+    --popover: 220 5% 10%;
+    --popover-foreground: 40 5% 90%;
+    --primary: 25 95% 53%; /* Safety Orange */
+    --primary-foreground: 40 5% 10%;
+    --secondary: 220 5% 18%;
+    --secondary-foreground: 40 5% 90%;
+    --muted: 220 5% 18%;
+    --muted-foreground: 220 5% 60%;
+    --accent: 220 5% 18%;
+    --accent-foreground: 40 5% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 5% 90%;
+    --border: 220 5% 22%;
+    --input: 220 5% 22%;
+    --ring: 25 95% 53%;
+    --radius: 0.5rem;
+  }
+
+  /* Default Theme (Deep Space / Navy) - already defined in .dark */
+
+  /* Emerald Theme (Matrix / Cyber) */
+  .theme-emerald .dark,
+  .theme-emerald.dark {
+    --background: 240 10% 3.9%; /* Very dark grey/black */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 71% 45%; /* Emerald Green */
+    --primary-foreground: 144 100% 10%;
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 5% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 142 71% 45%;
+  }
+
+  /* Amethyst Theme (Creative / Modern) */
+  .theme-amethyst .dark,
+  .theme-amethyst.dark {
+    --background: 265 15% 5%; /* Deep Purple Black */
+    --foreground: 210 40% 98%;
+    --card: 265 15% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 265 15% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 95% 65%; /* Vivid Purple */
+    --primary-foreground: 270 20% 10%;
+    --secondary: 265 10% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 265 10% 15%;
+    --muted-foreground: 265 10% 70%;
+    --accent: 265 10% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 265 10% 20%;
+    --input: 265 10% 20%;
+    --ring: 270 95% 65%;
+  }
+
+  /* Industrial Theme (Robotics / Hardware) */
+  .theme-industrial .dark,
+  .theme-industrial.dark {
+    --background: 220 5% 8%; /* Warm Zinc Dark */
+    --foreground: 40 5% 90%;
+    --card: 220 5% 10%;
+    --card-foreground: 40 5% 90%;
+    --popover: 220 5% 10%;
+    --popover-foreground: 40 5% 90%;
+    --primary: 25 95% 53%; /* Safety Orange */
+    --primary-foreground: 40 5% 10%;
+    --secondary: 220 5% 18%;
+    --secondary-foreground: 40 5% 90%;
+    --muted: 220 5% 18%;
+    --muted-foreground: 220 5% 60%;
+    --accent: 220 5% 18%;
+    --accent-foreground: 40 5% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 5% 90%;
+    --border: 220 5% 22%;
+    --input: 220 5% 22%;
+    --ring: 25 95% 53%;
+  }
+
+  /* Industrial Theme (Robotics / Hardware) - Now Default */
+  .dark {
+    --background: 220 5% 8%; /* Warm Zinc Dark */
+    --foreground: 40 5% 90%;
+    --card: 220 5% 10%;
+    --card-foreground: 40 5% 90%;
+    --popover: 220 5% 10%;
+    --popover-foreground: 40 5% 90%;
+    --primary: 25 95% 53%; /* Safety Orange */
+    --primary-foreground: 40 5% 10%;
+    --secondary: 220 5% 18%;
+    --secondary-foreground: 40 5% 90%;
+    --muted: 220 5% 18%;
+    --muted-foreground: 220 5% 60%;
+    --accent: 220 5% 18%;
+    --accent-foreground: 40 5% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 5% 90%;
+    --border: 220 5% 22%;
+    --input: 220 5% 22%;
+    --ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,121 @@
+[
+  
+  {
+    "title": "Architected a Modular Replay System (LARS) for Automated Vehicle Testing",
+    "url": "/posts/lars/",
+    "categories": "System Architecture",
+    "tags": "controls, vehicle-testing, vehicle-integration, CANFD, software-architecture, hardware-architecture, simulink, matlab, ROS2, python, UDP, linux, networking",
+    "date": "2025-05-08 00:00:00 -0500",
+    "content": "Developed and deployed a vehicle-agnostic system to enable repeatable and consistent testing of automated controllers across multiple platforms."
+  },
+  
+  {
+    "title": "Deployed a VIL Test Platform to CARB facility for the EcoCAR Dynamometer Event",
+    "url": "/posts/vil-dyno-testing/",
+    "categories": "System Architecture",
+    "tags": "controls, dynamometer-testing, vehicle-testing, vehicle-integration, simulation-testing, software-architecture, networking, UDP, CAN/CANFD, hardware-architecture",
+    "date": "2025-04-04 00:00:00 -0500",
+    "content": "Led the design and implementation of a standardized Vehicle-in-the-Loop (VIL) communication interface, enabling repeatable and collaborative dynamometer testing for 13 university teams."
+  },
+  
+  {
+    "title": "Architected a Comma.ai-based VIL Test Platform for Rapid Controller Deployment",
+    "url": "/posts/flexdrive-solution/",
+    "categories": "System Architecture",
+    "tags": "controls, hardware-in-the-loop, vehicle-testing, Comma.ai, software-architecture, CAN, simulink, ROS, python, toyota-prius",
+    "date": "2024-09-17 00:00:00 -0500",
+    "content": "Developed a vehicle-agnostic software framework fully integrated with Comma.ai hardware, enabling rapid deployment and testing of new autonomous control algorithms on a physical vehicle."
+  },
+  
+  {
+    "title": "Bakery Pricing Tool",
+    "url": "/posts/bakery-pricing-tool/",
+    "categories": "System Architecture",
+    "tags": "python, streamlit, sqlite, numpy, data-management, software-development, full-stack",
+    "date": "2024-09-16 00:00:00 -0500",
+    "content": "Yes, you read that right. I developed a full-stack web application to accurately calculate profit margins for baked goods, featuring a SQLite backend, a Python-based calculation engine, and a Streamlit front-end."
+  },
+  
+  {
+    "title": "Characterized Sensor Performance in Real-World Weather Conditions",
+    "url": "/posts/sensor-characterization/",
+    "categories": "System Architecture",
+    "tags": "sensor-fusion, data-pipeline, python, ROS, camera, lidar, radar, weather-research, multi-disciplinary, yolo, object-detection, object-classification, data-analysis, SSH",
+    "date": "2023-01-15 00:00:00 -0600",
+    "content": "Designed a static sensor array and developed a data logging and analysis pipeline to quantify the effects of weather on LiDAR, camera, and radar sensors."
+  },
+  
+  {
+    "title": "CAV Organizer for EcoCAR EV Challenge",
+    "url": "/posts/ecocar-ev-challenge-organizer/",
+    "categories": "Leadership",
+    "tags": "leadership, mentorship, hardware-architecture, softeare-architecture",
+    "date": "2022-10-10 00:00:00 -0500",
+    "content": "Led the Connected and Automated Vehicle (CAV) track of the EcoCAR EV Challenge, a $6 million DOE program, guiding 13 university teams in developing next-generation autonomous systems."
+  },
+  
+  {
+    "title": "Founder of a Failed Startup (Revision Autonomy)",
+    "url": "/posts/revision-autonomy/",
+    "categories": "Leadership",
+    "tags": "entrepreneurship, lean-startup, business-development, customer-discovery",
+    "date": "2021-12-10 00:00:00 -0600",
+    "content": "Co-founded a startup to commercialize autonomous vehicle perception technology, leveraging the NSF I-Corps program and lean startup principles to validate our business model."
+  },
+  
+  {
+    "title": "Curated a Full ML-Pipeline for Tire Track Identification on Snow-Covered Roads",
+    "url": "/posts/tire-track-detection/",
+    "categories": "Computer Vision",
+    "tags": "AI/ML, computer-vision, opencv, python, ROS, GCP, data pipeline, PyQT",
+    "date": "2021-08-10 00:00:00 -0500",
+    "content": "Developed and implemented a machine learning-based perception system to enable autonomous vehicle navigation when lane lines are occluded by snow."
+  },
+  
+  {
+    "title": "Developed a Computer Vision Model for Gravel Road Edge Detection",
+    "url": "/posts/gravel-detection/",
+    "categories": "Computer Vision",
+    "tags": "computer-vision, python, data-pipeline, vehicle-integration, opencv, camera, linux, opencv, CAN/CANFD",
+    "date": "2020-10-15 00:00:00 -0500",
+    "content": "Engineered a custom computer vision model to accurately detect the drivable edges of gravel and unpaved roads, a critical step for autonomous navigation."
+  },
+  
+  {
+    "title": "Perception System Data Collection in Adverse Weather",
+    "url": "/posts/kia-data-collection/",
+    "categories": "System Architecture",
+    "tags": "perception, camera, lidar, radar, CAN/CANFD, data-pipeline, drive-by-wire, ROS, GCP, cloud, PyQT, GUI, UI/UX, linux, sensor-fusion, yolo, object-detection, object-classification, lane detection, data-analysis, software-architecture, hardware-architecture, vehicle-integration",
+    "date": "2020-10-10 00:00:00 -0500",
+    "content": "Architected a full hardware and software stack for a Kia Niro HEV, creating a robust, low-cost platform for autonomous vehicle research and data collection."
+  },
+  
+  {
+    "title": "Integrated a Simulation-Trained RL Agent for End-to-End Lateral Control",
+    "url": "/posts/end-to-end-rl-agent-kia/",
+    "categories": "Systems Integration",
+    "tags": "AI/ML, reinforcement-learning, controls, simulation, ROS, hardware-integration, vehicle-testing, python, end-to-end",
+    "date": "2020-04-14 00:00:00 -0500",
+    "content": "Developed and deployed a camera-based, end-to-end reinforcement learning model trained in a virtual environment to control a full-sized autonomous vehicle."
+  },
+  
+  {
+    "title": "Trained a Deep Neural Network for Autonomous RC Car Control",
+    "url": "/posts/donkey-car/",
+    "categories": "Systems Integration",
+    "tags": "AI/ML, computer-vision, deep-learning, CNN, embedded-systems, hardware-integration, data-collection, python, raspberry-pi, donkey-car",
+    "date": "2019-06-15 00:00:00 -0500",
+    "content": "Built a full software and hardware stack to train an end-to-end Convolutional Neural Network (CNN) for steering a physical RC car based on camera data."
+  },
+  
+  {
+    "title": "Completed Udacity's Intro to Self-Driving Cars Nanodegree",
+    "url": "/posts/udacity-nanodegree/",
+    "categories": "Computer Vision",
+    "tags": "computer-vision, pytorch, sensor-fusion, controls, path-planning, behavioral-cloning, python, C++",
+    "date": "2018-12-01 00:00:00 -0600",
+    "content": "A series of projects covering foundational concepts in autonomous systems, including computer vision, sensor fusion, localization, and control."
+  }
+  
+]
+
