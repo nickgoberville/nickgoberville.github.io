@@ -6,27 +6,27 @@ const experiences = [
     id: 1,
     role: "Connected and Automated Vehicle Research Engineer",
     company: "Argonne National Laboratory",
-    date: "2023 - Present",
+    date: "2022 - Present",
     description:
-      "Leading research in VIL architectures, standardized testing frameworks (EcoCAR), and deployment of automated systems (LARS) on physical vehicles.",
+      "Leading research in automated vehicle testing architectures, agentic AI workflows, and edge-deployed models for real-time control and evaluation.",
     icon: Briefcase,
   },
   {
     id: 2,
     role: "Co-Founder",
     company: "Revision Autonomy",
-    date: "2021 - 2023",
+    date: "2020 - 2023",
     description:
-      "Co-founded a startup to commercialize autonomous vehicle perception technology. Secured over $215k in funding through NSF I-Corps.",
+      "Raised over $215k to commercialize adverse weather perception technology. Applied Lean Startup methodology with 150+ customer discovery interviews.",
     icon: Briefcase,
   },
   {
     id: 3,
     role: "Ph.D. in Automated Systems",
     company: "Western Michigan University",
-    date: "2019 - 2023",
+    date: "2019 - 2022",
     description:
-      "Dissertation on automated driving systems in snow. Specialized in computer vision, sensor fusion, and robust control systems.",
+      "Dissertation on automated driving systems in snow. Specialized in computer vision, sensor fusion, and robust AI-based control systems.",
     icon: GraduationCap,
   },
 ];

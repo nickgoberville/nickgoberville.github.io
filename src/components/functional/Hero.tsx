@@ -28,11 +28,11 @@ export function Hero() {
           Nick Goberville, Ph.D.
         </h1>
         <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
-          Robotics Software & AI Engineer
+          Autonomy and AI Software Engineer
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Building simple, robust, and scalable solutions for complex technical
-          challenges in AI, Robotics, and Software.
+          Specializing in real-time edge AI and agentic workflows for autonomous
+          systems.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 pt-4">

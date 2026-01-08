@@ -22,89 +22,127 @@ export const projects: Project[] = [
     id: "lars",
     title: "LARS (Longitudinal Automated Replay System)",
     description:
-      "Architected a vehicle-agnostic system for repeatable lead vehicle testing, deployed on Cadillac Lyriq and Toyota Prius.",
+      "Vehicle-integrated drive cycle execution system enabling any vehicle to autonomously follow standardized speed profiles. Deployed on Cadillac LYRIQ and Toyota Prius Prime.",
     fullDescription: `
 ---
-> Architected a vehicle-agnostic system for repeatable lead vehicle testing to validate ADAS controllers against real-world scenarios.
+> Vehicle-integrated system enabling autonomous drive cycle execution for standardized ADAS benchmarking and emissions testing.
 
 ## Overview
-The variability of human drivers makes benchmarking automated controllers (ACC/LKA) inconsistent. I designed **LARS** to capture and replay lead vehicle trajectories with high precision, enabling repeatable validation cycles.
+**LARS** integrates directly into a vehicle's control systems, allowing it to autonomously execute any drive cycle with high precision. This eliminates human driver variability during emissions testing, ACC validation, and ADAS benchmarking—enabling fair, repeatable comparisons across different controller implementations.
 
-## Highlights
-- **Architecture**: Developed a standardized bus architecture and FlexIL vehicle interface, allowing plug-and-play integration of ACC controllers across different OEMs.
-- **ROS 2 Migration**: Led the migration from Simulink to a modular **ROS 2** architecture, implementing nodes for Control Loops, Pedal Actuation, and Drivecycle Management.
-- **Impact**: Deployed on a **2024 Cadillac Lyriq** and **2023 Toyota Prius Prime**, validating the system at **GM's Milford Proving Ground**. Enabled fair cross-platform benchmarking for the EcoCAR EV Challenge.
+<p align="center"><img src="/assets/gif/LARS_track_gif_10fps.gif" alt="LARS Track Test - Lead vehicle with Super Cruise follow" width="80%" /></p>
+
+## Features
+- **Drive Cycle Execution**: Upload any speed profile within ±2.5 m/s² acceleration limits
+- **Vehicle Integration**: Connects via CAN/CAN-FD and Comma.ai hardware for throttle/brake actuation
+- **State Machine Safety**: Backend ensures safe state transitions before enabling automated control
+- **Real-Time UI**: Foxglove-based dashboard with live telemetry, GPS tracking, and one-click test controls
+- **Open Source**: Built on open standards, independent of proprietary licenses
+
+## Tech Stack
+- **Framework**: ROS 2 (Jazzy), C++, Python
+- **Visualization**: Foxglove Studio
+- **Vehicle Interface**: SocketCAN, Comma.ai Panda/Pedal, CAN-FD
+- **Control**: Analog pedal mapping, closed-loop speed controller
+- **Platform**: Ubuntu 24.04
+
+## Validation
+<p align="center"><img src="/assets/img/lars-speed-tracking.png" alt="Speed Tracking Performance" width="60%" /></p>
+
+- Speed tracking within **SAE J1634 bounds** (±1 m/s error)
+- Validated on **EPA UDDS 505** and **HWFET** drive cycles
+- Deployed on **2024 Cadillac LYRIQ** and **2023 Toyota Prius Prime**
+- Tested at **GM Milford Proving Grounds** and **Desert Proving Grounds**
 ---
     `,
     tags: [
       "ROS2",
-      "Python",
-      "System Architecture",
-      "Vehicle Testing",
-      "CANFD",
-      "Simulink",
-      "UDP",
+      "C++",
+      "Foxglove",
+      "SocketCAN",
+      "Comma.ai",
+      "CAN-FD",
+      "Ubuntu",
     ],
     category: "Robotics & Autonomy",
     date: "2025-05",
     imageUrl: "/assets/img/lars_thumbnail.jpg",
     videoUrl: "https://player.vimeo.com/video/1103835725?h=b1031715fb",
     featured: true,
-    links: [{ label: "Paper", url: "https://doi.org/10.4271/2025-01-8065" }],
+    links: [{ label: "Paper (Coming Soon)", url: "" }],
   },
   {
     id: "vehicle-data-repository",
-    title: "Vehicle Data Repository",
+    title: "Vehicle Data Repository (VDR)",
     description:
-      "Centralized data lake for autonomous vehicle logs, handling petabytes of drive data with instant searchability.",
+      "On-premise data repository with ETL pipelines for vehicle logs (MCAP, MF4, BLF), MongoDB metadata, and agentic AI natural language querying.",
     fullDescription: `
 ---
-> Architected a centralized data lake for autonomous vehicle logs, enabling instant querying of petabytes of drive data.
+> Modular data repository transforming raw vehicle test logs into queryable Parquet format with natural language querying via agentic AI.
 
 ## Overview
-Managing the deluge of data from AV fleets is a massive challenge. I built a cloud-native repository that indexes, stores, and exposes vehicle logs for analysis, replacing fragmented hard drive storage with a unified queryable interface.
+Managing terabytes of heterogeneous vehicle test data across multiple formats was a major bottleneck for post-processing and analysis. I built **VDR** to standardize data ingestion, enable complex queries without custom tooling, and dramatically accelerate in-house data analysis workflows.
 
-## Highlights
-- **Scalability**: Built on **AWS S3** and **Glacier** to cost-effectively handle petabytes of BAG and MF4 files.
-- **Searchability**: Implemented **Elasticsearch** strategies to query complex driving scenarios (e.g., "left turn in rain") in seconds.
-- **Pipeline**: Automated ingestion pipelines using **Apache Airflow** to sanitize, tag, and catalog data immediately post-drive.
+## Features
+- **ETL Pipelines**: Ingest ROS2 MCAP bags, CAN bus logs (MF4, BLF), and CSV files
+- **On-Premise Storage**: Secure cold storage with hash-based deduplication (no cloud due to data confidentiality)
+- **Complex Queries**: MongoDB NoSQL schema enables flexible metadata queries
+- **Agentic AI Integration**: Natural language data requests—e.g., *"Get Toyota Prius logs from Kearny Rd testing on March 4th 2025"*
+- **Parquet Output**: Standardized format for downstream analysis in Python/Pandas
+
+## Tech Stack
+- **Backend**: FastAPI, MongoDB, Redis, Celery
+- **Data Formats**: MCAP, MF4, BLF, Parquet
+- **CLI**: Python (Click), Textual TUI
+- **Visualization**: Streamlit, Plotly
+- **AI**: LLM-powered agentic data retrieval
 ---
     `,
-    tags: ["Cloud Architecture", "AWS", "Big Data", "Elasticsearch", "Python"],
+    tags: ["Python", "MongoDB", "FastAPI", "ETL", "Agentic AI", "Parquet"],
     category: "Edge & Systems",
     date: "2025-06",
-    imageUrl: "/assets/img/placeholder.svg",
+    imageUrl: "/assets/img/vehicle-data-pipeline.png",
     featured: true,
   },
   {
     id: "lars-sim",
-    title: "LARS-Sim",
+    title: "LARS-HIL (Co-Simulation Manager)",
     description:
-      "Digital twin of the LARS system for risk-free controller validation in virtual environments.",
+      "Real-time lead vehicle simulation for HIL/VIL testing with 40+ built-in drive cycles. Cross-platform Python tool with live visualization.",
     fullDescription: `
 ---
-> Developed a high-fidelity Digital Twin of the LARS system to validate control algorithms in a risk-free virtual environment.
+> Real-time lead vehicle simulation tool for hardware-in-the-loop (HIL) and vehicle-in-the-loop (VIL) testing.
 
 ## Overview
-Validating control algorithms on physical vehicles is dangerous and slow. **LARS-Sim** replicates the physical LARS behavior in high-fidelity simulation, allowing developers to test their code against a perfect digital replica before track testing.
+Validating control algorithms on physical vehicles is dangerous and slow. **LARS-HIL** simulates lead vehicle behavior for risk-free controller development before track testing.
 
-## Highlights
-- **Parity**: Achieved >95% dynamic correlation between the simulated and physical vehicle response curves.
-- **Integration**: Plug-and-play compatibility with the real LARS hardware interface—the exact same controller code runs on both.
-- **Safety**: Enabled rigorous fault injection testing (e.g., sensor failure, CAN bus delay) that would be non-viable on a physical test track.
+## Features
+- **40+ Built-in Drive Cycles**: UDDS, HWFET, and custom speed profiles
+- **Real-Time Visualization**: Interactive plots with zoom, pan, and cursor tracking
+- **UDP Communication**: Configurable network settings for hardware integration
+- **Comprehensive Logging**: CSV exports for offline analysis
+- **Cross-Platform**: Windows 10/11, Ubuntu 18+
+- **Easy Installation**: \`pip install lars-hil\`
+
+## Tech Stack
+- **GUI**: PyQt (via Typer/Rich TUI)
+- **Plotting**: Matplotlib, NumPy
+- **Config**: PyYAML, pandas (CSV parsing)
+- **Networking**: Python socket, UDP/IPv4
+- **CLI**: Typer, Rich
 ---
     `,
-    tags: ["Simulation", "Digital Twin", "CARLA", "ROS2", "Validation"],
+    tags: ["Python", "PyQt", "UDP", "HIL", "VIL", "Cross-Platform"],
     category: "Robotics & Autonomy",
     date: "2025-05",
-    imageUrl: "/assets/img/placeholder.svg",
+    imageUrl: "/assets/img/lars-sim-hil-manager.png",
     featured: true,
   },
   {
     id: "vil-dyno",
     title: "VIL Dynamometer Testing Framework",
     description:
-      "Architected a standardized VIL communication interface, achieving 0 packet loss during closed-loop testing on a Cadillac LYRIQ.",
+      "Architected a standardized VIL communication interface with dSPACE AUTERA and RTMaps, achieving 0 packet loss during closed-loop testing.",
     fullDescription: `
 ---
 > Architected a standardized Vehicle-in-the-Loop (VIL) interface to evaluate energy consumption of automated driving features.
@@ -112,17 +150,28 @@ Validating control algorithms on physical vehicles is dangerous and slow. **LARS
 ## Overview
 To quantify the energy impact of perception and control algorithms, we needed a controlled yet realistic environment. I designed a VIL framework that injects virtual sensor fusion objects into a physical vehicle on a dyno.
 
-## Highlights
-- **Communication Protocol**: Designed a custom IPv4/UDP interface for real-time object injection, optimized for low latency.
-- **Reliability**: Achieved **zero packet loss** during high-throughput closed-loop testing on a Cadillac LYRIQ.
-- **Standardization**: Collaborated with the **GM Super Cruise** team to define a common reference frame, establishing the testing standard for 13 university teams.
+<p align="center"><img src="/assets/img/vil-architecture-design.png" alt="VIL Architecture Design" width="80%" /></p>
+
+## Features
+- **Communication Protocol**: Designed a custom IPv4/UDP interface for real-time object injection, optimized for low latency
+- **dSPACE Integration**: Integrated with dSPACE AUTERA platform using custom RTMaps encoders/decoders
+- **Multi-Language Support**: Wrote C++ encoders/decoders for RTMaps, plus Simulink, MATLAB, and Python implementations
+- **Reliability**: Achieved **zero packet loss** during high-throughput closed-loop testing on a Cadillac LYRIQ
+- **Standardization**: Collaborated with GM Super Cruise team to define a common reference frame for 13 university teams
+
+## Tech Stack
+- **Networking**: Python sockets, UDP/IPv4, Wireshark
+- **Message Protocol**: Custom binary packing, struct module
+- **HIL Platform**: dSPACE AUTERA, RTMaps (C++ encoders/decoders)
+- **Languages**: C++, Simulink, MATLAB, Python
+- **Testing**: Argonne 4WD Chassis Dyno, California Air Resources Board (CARB) in Riverside, CA
 ---
     `,
     tags: [
-      "System Architecture",
-      "Networking",
+      "Python",
       "UDP",
-      "Hardware-in-the-Loop",
+      "dSPACE",
+      "RTMaps",
       "Dynamometer",
     ],
     category: "Edge & Systems",
@@ -146,23 +195,32 @@ To quantify the energy impact of perception and control algorithms, we needed a 
 ## Overview
 Traditional lane-keeping fails in snow. I developed a cost-effective, camera-based solution that segments tire tracks as a navigational path. This system outperformed leading commercial solutions which failed in >99% of snowy frames.
 
-## Highlights
-- **ML Pipeline**: Built an end-to-end pipeline from data collection (using CVAT) to model deployment.
-- **Optimization**: Optimized the model for CPU inference, achieving **1084 FPS** (95x speedup over SOTA) while maintaining **83.2% mIoU**.
-- **Commercialization**: This technology became the core IP for **Revision Autonomy**, leading to a patent pending status.
+<p align="center"><img src="/assets/img/tire-track-detection.jpg" alt="Tire Track Detection Results" width="70%" /></p>
+
+## Features
+- **ML Pipeline**: End-to-end pipeline from data collection (CVAT) to model deployment
+- **Optimization**: CPU inference at **1084 FPS** (95x speedup over SOTA) with **83.2% mIoU**
+- **Commercialization**: Core IP for **Revision Autonomy** (patent pending)
+
+## Tech Stack
+- **Framework**: PyTorch, ONNX Runtime
+- **Model**: Custom U-Net semantic segmentation
+- **Data**: CVAT annotation, custom dataset (~5000 frames)
+- **Libraries**: OpenCV, NumPy
+- **Deployment**: ROS (Melodic), Intel NUC
+- **Vehicle**: 2019 Kia Soul EV
 ---
     `,
     tags: [
-      "AI/ML",
-      "Computer Vision",
+      "PyTorch",
       "Semantic Segmentation",
-      "Python",
       "OpenCV",
       "ROS",
+      "ONNX",
     ],
     category: "AI & Computer Vision",
     date: "2021-12",
-    imageUrl: "/assets/img/tire-track-detection.jpg",
+    imageUrl: "/assets/img/model-labelling-pipepile.jpg",
     videoUrl:
       "https://drive.google.com/file/d/1PS9A51KFgkwUGfc3REDciu9dl8J7bP8y/preview",
     featured: true,
@@ -180,25 +238,33 @@ Traditional lane-keeping fails in snow. I developed a cost-effective, camera-bas
 > Deployed a simulation-trained Reinforcement Learning agent to control a full-sized vehicle, validating Sim2Real transferability.
 
 ## Overview
-Real-world data collection is expensive and risky. This project explored training a lateral control agent entirely within **CARLA simulator** and deploying it zero-shot to the real world.
+Real-world data collection is expensive and risky. This project explored training a lateral control agent entirely within **CARLA simulator** and deploying it zero-shot to the real world. This work was inspired by AWS DeepRacer principles scaled to full-sized vehicles.
 
-## Highlights
-- **Sim-to-Real**: Successfully transferred the policy to a **2019 Kia Niro** equipped with Polysync Drive-by-wire.
-- **Control Strategy**: Implemented a hybrid architecture using a PID controller for longitudinal speed control and the RL agent for lateral steering.
-- **Performance**: The system matched ground truth human steering with **92% accuracy** in real-world testing.
+## Features
+- **Sim-to-Real**: Successfully transferred the policy to a **2019 Kia Niro** equipped with Polysync Drive-by-wire
+- **Control Strategy**: Hybrid architecture—PID for longitudinal control, RL agent for lateral steering
+- **Performance**: Matched ground truth human steering with **92% accuracy** in real-world testing
+
+## Tech Stack
+- **RL Framework**: Keras, TensorFlow, OpenAI Gym
+- **Simulation**: CARLA Simulator
+- **Vehicle Interface**: SocketCAN, ROS (Melodic), C++
+- **Drive-by-Wire**: Polysync DriveKit
+- **Compute**: NVIDIA Jetson TX2
+- **Inspiration**: AWS DeepRacer (scaled to full vehicle)
 ---
     `,
     tags: [
-      "AI/ML",
-      "Reinforcement Learning",
-      "Robotics",
+      "Keras",
       "CARLA",
-      "Sim-to-Real",
       "ROS",
+      "C++",
+      "SocketCAN",
+      "Jetson",
     ],
     category: "AI & Computer Vision",
     date: "2020-03",
-    imageUrl: "/assets/img/rl-hardware.jpg",
+    imageUrl: "/assets/img/RL-agent-training.jpg",
     featured: true,
     links: [
       { label: "Publication", url: "https://doi.org/10.4271/2020-01-0737" },
@@ -208,49 +274,76 @@ Real-world data collection is expensive and risky. This project explored trainin
     id: "ai-speed-following",
     title: "AI-Based Speed Following",
     description:
-      "End-to-end deep learning model for longitudinal control, mimicking naturalistic driving behavior.",
+      "Online-learning DNN for one-pedal drive EVs, enabling vehicle-agnostic drive cycle execution without brake integration.",
     fullDescription: `
 ---
-> End-to-end deep learning model for longitudinal control, mimicking naturalistic driving behavior.
+> Vehicle-agnostic speed controller using online-learning neural network for one-pedal drive EVs.
 
 ## Overview
-Classical Adaptive Cruise Control (ACC) often feels robotic and reactive. I trained a behavioral cloning model to predict desired speed and acceleration directly from visual inputs, resulting in smoother, more human-like following behavior.
+To enable any one-pedal drive EV to execute precise speed profiles (e.g., from LARS), I developed an **online-learning neural network** that adapts in real-time to the specific vehicle dynamics—no prior training data or brake integration required.
 
-## Highlights
-- **Architecture**: Employed a **ResNet-50** backbone fused with CAN bus velocity data to predict acceleration commands.
-- **Data Efficiency**: Trained on just 10 hours of expert driving data to achieve reliable lane-following and car-following capability.
-- **Smoothness**: Reduced jerk metrics by **40%** compared to standard PID-based ACC systems, significantly improving passenger comfort.
+## How It Works
+1. **Input**: Desired speed trace (time, speed) as a two-column vector
+2. **Lookahead**: Controller reads 1.2 seconds ahead to compute desired speed and current acceleration
+3. **Online Learning**: A custom 3-layer DNN with backpropagation minimizes speed error in real-time
+4. **Output**: Pedal position (0-100%) commanding regen braking or acceleration
+5. **Adaptation**: Weights and biases adjust on-the-fly to match any vehicle's throttle/regen response
+
+## Key Advantages
+- **Vehicle-Agnostic**: Works on any EV with one-pedal drive (uses regen for braking)
+- **No Brake Integration**: Eliminates the need for costly brake-by-wire hardware
+- **Real-Time Adaptation**: Learns the vehicle's response curve during operation
+- **Reduced Jerk**: Smoother transitions than traditional PID, **40% jerk reduction**
+
+## Tech Stack
+- **Model**: Custom 3-layer DNN with online backpropagation
+- **Control Logic**: Python, NumPy
+- **Vehicle Interface**: CAN bus, one-pedal drive regen
+- **Target**: Any one-pedal drive EV (Cadillac LYRIQ, Toyota Prius Prime, etc.)
 ---
     `,
-    tags: ["AI/ML", "Deep Learning", "Behavioral Cloning", "ACC", "End-to-End"],
+    tags: ["Neural Network", "Online Learning", "Python", "CAN", "One-Pedal Drive"],
     category: "AI & Computer Vision",
     date: "2024-12",
-    imageUrl: "/assets/img/placeholder.svg",
+    imageUrl: "/assets/img/ai-speed-following.png",
     featured: true,
   },
   {
     id: "ai-weather-estimation",
-    title: "AI-Based Weather Estimation",
+    title: "Multi-Sensor Weather Characterization",
     description:
-      "Real-time classification of road weather conditions for adaptive autonomous control.",
+      "Quantified LiDAR/Camera degradation in real-world weather conditions with 50% point cloud reduction in precipitation.",
     fullDescription: `
 ---
-> Real-time classification of road weather conditions using on-board camera feeds to adapt control strategies.
+> Multi-sensor weather characterization system quantifying perception degradation in adverse conditions.
 
 ## Overview
-Autonomous systems need to know when to be cautious. I developed a lightweight CNN to classify weather states (Dry, Wet, Snow, Ice) from the vehicle's forward-facing camera in real-time, enabling the planner to adjust safety margins dynamically.
+Autonomous systems need to understand their limitations. I designed and deployed a static multi-sensor array to quantify how LiDAR and camera performance degrades in real-world weather.
 
-## Highlights
-- **Accuracy**: Achieved **94% classification accuracy** across diverse lighting and environmental conditions.
-- **Efficiency**: Quantized model runs at **30Hz** on embedded edge hardware (NVIDIA Jetson AGX Xavier).
-- **Adaptation**: Output automatically triggers safety-critical parameter tuning (e.g., increased following distance) in the downstream motion planner.
+## Key Findings
+- **LiDAR Intensity**: Up to **80% peak** in daylight, **14.3% reduction** in precipitation
+- **Point Cloud Density**: **49.3% reduction** in snow/rain due to scattering
+- **Weather Data Correlation**: Synchronized with visibility, precipitation rate/type, and accumulation
+
+## Technical Setup
+- **LiDAR**: Ouster OS2-128, Velodyne VLP-32
+- **Camera**: Allied Vision Mako G-507
+- **Radar**: Delphi ESR 2.5
+- **Weather Station**: Vaisala FD70 present weather sensor/detector
+- **Targets**: High-reflective panels at 18m and 40m
+- **Duration**: 1.5 months continuous collection
+
+## Impact
+- Supports OEM operational design domain (ODD) definition
+- Published findings at SAE WCX
 ---
     `,
-    tags: ["AI/ML", "Computer Vision", "Weather", "Edge AI", "Safety"],
+    tags: ["LiDAR", "PCL", "Data Pipeline", "Weather", "Sensor Characterization"],
     category: "AI & Computer Vision",
     date: "2024-11",
-    imageUrl: "/assets/img/placeholder.svg",
+    imageUrl: "/assets/img/weather-sensor-performance.png",
     featured: true,
+    links: [{ label: "Publication", url: "https://doi.org/10.4271/2023-01-0056" }],
   },
 
   // --- Other Projects ---
@@ -258,24 +351,34 @@ Autonomous systems need to know when to be cautious. I developed a lightweight C
     id: "flexdrive",
     title: "FlexDrive Solution",
     description:
-      "Modular, vehicle-agnostic software framework integrated with Comma.ai hardware for rapid prototyping.",
+      "Vehicle-agnostic ROS2 software framework with CAN abstraction layer for rapid autonomous prototyping on NVIDIA Jetson.",
     fullDescription: `
 ---
 > Created a modular abstraction layer to accelerate autonomous vehicle prototyping from weeks to hours.
 
 ## Overview
-Fragmented hardware interfaces stifle innovation. I developed **FlexDrive**, a framework that abstracts vehicle-specific CAN messages into a standardized control interface.
+Fragmented hardware interfaces stifle innovation. I developed **FlexDrive**, an open V2X prototyping platform that abstracts vehicle-specific CAN messages into a standardized ROS2 control interface.
 
-## Highlights
-- **Integration**: Seamlessly integrated with **Comma.ai Panda** and Pedal hardware for universal vehicle compatibility.
-- **Validation**: Validated with three distinct custom ACC controllers at **GM Milford Proving Grounds**.
-- **Efficiency**: Drastically reduced the time-to-track for new algorithms, allowing rapid iteration of control logic.
+<p align="center"><img src="/assets/img/flexdrive-architecture.png" alt="FlexDrive Architecture" width="90%" /></p>
+
+## Features
+- **Hardware Abstraction Layer (HAL)**: CAN abstraction using Kvaser canlib (C++)
+- **DDS Communication**: ROS2-based message passing for vehicle state and control
+- **Vehicle Integration**: Comma.ai Panda/Pedal for throttle/brake override
+- **V2X Ready**: Cohda Wireless integration for connected vehicle scenarios
+
+## Tech Stack
+- **Framework**: ROS2 (Foxy/Humble)
+- **Languages**: C++, Python
+- **CAN Libraries**: Kvaser canlib, SocketCAN
+- **Hardware**: NVIDIA Jetson Nano, Comma.ai Panda/Pedal
+- **V2X**: Cohda Wireless, DSRC/C-V2X
 ---
     `,
-    tags: ["System Architecture", "Comma.ai", "CAN", "Simulink", "Python"],
+    tags: ["ROS2", "C++", "Kvaser", "Jetson Nano", "Comma.ai", "V2X"],
     category: "Edge & Systems",
     date: "2024-09",
-    imageUrl: "/assets/img/xil-concept.png",
+    imageUrl: "/assets/img/flexdrive-concept.png",
   },
   {
     id: "eco-car-organizer",
@@ -317,19 +420,20 @@ Tasked with defining the scope for the next generation of automotive engineers. 
 ## Overview
 Safety margins decrease in bad weather. To quantify this, I built a static rig equipped with LiDAR, Radar, and Cameras to collect long-term environmental data.
 
-## Highlights
-- **Data Pipeline**: Developed a robust logging and analysis pipeline to process terabytes of multi-modal data.
-- **Quantitative Findings**: Discovered a **22% reduction** in LiDAR point return density in rain and **29%** in snow.
-- **Application**: These metrics are critical for defining the operational design domain (ODD) of safe autonomous systems.
+## Features
+- **Data Pipeline**: Robust logging and analysis for terabytes of multi-modal data
+- **LiDAR Reduction**: **22% point density loss** in rain, **29%** in snow
+- **Application**: Critical for OEM operational design domain (ODD) definition
+
+## Tech Stack
+- **LiDAR**: Ouster OS2-128, Velodyne VLP-32
+- **Camera**: Allied Vision Mako G-507
+- **Radar**: Delphi ESR 2.5
+- **Analysis**: Python, pandas, NumPy, Open3D
+- **Storage**: ROS2 MCAP bags, Parquet
 ---
     `,
-    tags: [
-      "Cloud / Data Pipeline",
-      "Computer Vision",
-      "LiDAR",
-      "Radar",
-      "Python",
-    ],
+    tags: ["Ouster", "Velodyne", "Delphi", "Python", "Open3D"],
     category: "AI & Computer Vision",
     date: "2024-10",
     imageUrl: "/assets/img/sensor-char-thumbnail.jpg",
@@ -344,18 +448,26 @@ Safety margins decrease in bad weather. To quantify this, I built a static rig e
 > Led the standardization of sensor fusion testing/verification, ensuring rigorous data integrity for competition scoring.
 
 ## Overview
-Inconsistent data formats were causing bottlenecks in scoring. I standardized the entire data collection and analysis workflow.
+Inconsistent data formats were causing bottlenecks in scoring. I standardized the entire data collection and analysis workflow for 13 university teams.
 
-## Highlights
-- **Optimization**: Provided a unified **DBC file** for bit-packing and data rates, saving each team ~6 hours of post-processing time.
-- **Metrics**: Implemented the **GOSPA metric** to objectively score student object detection performance.
-- **Precision**: Achieved ground truth testing precision of **<0.01cm** using OxTS RTK GNSS units.
+<p align="center"><img src="/assets/img/common_reference_frame.png" alt="Common Reference Frame" width="50%" /></p>
+
+## Features
+- **Optimization**: Unified **DBC file** for bit-packing and data rates, saving ~6 hours/team in post-processing
+- **Metrics**: Implemented the **GOSPA metric** to objectively score student object detection performance
+- **Precision**: Ground truth testing precision of **<0.01cm** using OxTS RTK GNSS units
+
+## Tech Stack
+- **Ground Truth**: OxTS RT3000 RTK GNSS, IMU
+- **Data Logging**: Vector CANalyzer, MF4/BLF formats
+- **Analysis**: Python, pandas, NumPy, matplotlib
+- **Standards**: EcoCAR DBC specification, SAE J3016
 ---
     `,
-    tags: ["Leadership", "Sensor Fusion", "Vehicle Networking", "GOSPA"],
+    tags: ["OxTS", "GOSPA", "DBC", "Python", "CANalyzer"],
     category: "Leadership",
     date: "2024-05",
-    imageUrl: "/assets/img/placeholder.svg",
+    imageUrl: "/assets/img/sensor-fusion-ekf.png",
   },
   {
     id: "bakery-pricing",
@@ -393,15 +505,21 @@ Addressed a gap in small business tooling where manual calculation errors led to
 > Implemented an end-to-end autonomous stack on an embedded platform to demonstrate CNN-based steering control.
 
 ## Overview
-A proof-of-concept for deep learning on edge devices.
+A proof-of-concept for deep learning on edge devices. Trained and deployed a CNN model to predict steering angles directly from grayscale camera images using behavioral cloning.
 
-## Highlights
-- **Implementation**: Deployed a Convolutional Neural Network (CNN) trained via behavioral cloning onto a **Raspberry Pi**.
-- **Hardware Integration**: Custom integration of Pi Camera, PWM servo controllers, and power management.
-- **Outcome**: The agent successfully navigated a closed course at **60% throttle** without interventions.
+## Features
+- **End-to-End Learning**: CNN predicts steering angle from raw camera input
+- **Data Collection**: Logged steering angles synchronized with grayscale images
+- **Deployment**: Model runs inference on embedded hardware in real-time
+
+## Tech Stack
+- **Hardware**: Raspberry Pi, Pi Camera
+- **ML Framework**: PyTorch
+- **Model**: Custom CNN (grayscale images → steering angle)
+- **Control**: PWM servo controllers
 ---
     `,
-    tags: ["AI/ML", "Robotics", "Deep Learning", "CNN", "Embedded Systems"],
+    tags: ["PyTorch", "CNN", "Raspberry Pi", "Behavioral Cloning"],
     category: "Robotics & Autonomy",
     date: "2024-09",
     imageUrl: "/assets/img/donkey-car.png",
@@ -412,25 +530,26 @@ A proof-of-concept for deep learning on edge devices.
     id: "revision-autonomy",
     title: "NSF I-Corps: Revision Autonomy",
     description:
-      "Co-founder & CEO. Secured $215k+ funding. Conducted 150+ customer discovery interviews.",
+      "Co-founded a deep-tech startup, secured $215k+ in non-dilutive funding, and conducted 150+ customer discovery interviews.",
     fullDescription: `
 ---
-> Co-founded a venture to commercialize adverse weather perception technology, securing significant non-dilutive funding.
+> Co-founded a venture to commercialize adverse weather perception technology, applying Lean Startup methodology to validate product-market fit.
 
 ## Overview
-Translated academic research into a viable commercial product roadmap.
+Translated academic research into a viable commercial product roadmap, leveraging my entrepreneurial drive to secure funding and build a go-to-market strategy.
 
 ## Highlights
-- **Funding**: Secured over **$215,000** in grants from the National Science Foundation (NSF) and state programs.
-- **Customer Discovery**: Conducted **150+ interviews** with automotive OEMs, Tier 1 suppliers, and DOTs to validate product-market fit.
-- **Strategy**: Applied **Lean Startup Methodology** to pivot from general perception to a focused winter-weather navigation solution.
+- **Funding**: Secured over **$215,000** in non-dilutive grants from the National Science Foundation (NSF) and state programs.
+- **Customer Discovery**: Conducted **150+ interviews** with automotive OEMs, Tier 1 suppliers, and DOTs to validate market demand.
+- **Business Model**: Designed a SaaS licensing model for ODD (Operational Design Domain) expansion software.
+- **Lean Startup**: Applied iterative pivoting to refine from general perception to a focused winter-weather navigation solution.
 ---
     `,
     tags: [
-      "Leadership",
       "Entrepreneurship",
       "Lean Startup",
       "Customer Discovery",
+      "NSF I-Corps",
     ],
     category: "Leadership",
     date: "2022-01",
@@ -446,15 +565,21 @@ Translated academic research into a viable commercial product roadmap.
 > Engineered the localization and mapping stack for a Level 3 autonomous demonstration on public highways.
 
 ## Overview
-Part of a showcase at the North American International Auto Show (NAIAS).
+Part of a showcase at the North American International Auto Show (NAIAS). Created an HD mapping system that stored lane geometry for real-time autonomy stack consumption.
 
-## Highlights
-- **HD Mapping**: Generated a high-definition map covering **140 miles** of Michigan highway.
-- **Localization**: Achieved **1cm localization accuracy** using spline-based estimation matching.
-- **Sensor Fusion**: Implemented an Extended Kalman Filter (EKF) ensuring robust state estimation by fusing Vision and Radar data.
+## Features
+- **HD Mapping**: Generated map covering **140 miles** of Michigan highway
+- **Localization**: **1cm accuracy** using spline-based estimation matching
+- **Sensor Fusion**: EKF fusing Mobileye camera lanes with Delphi radar objects
+
+## Tech Stack
+- **Sensors**: Delphi ESR 2.5 Radar, Mobileye Camera, GNSS
+- **Mapping**: scipy (spline fitting), pandas (map storage)
+- **Fusion**: Extended Kalman Filter (EKF), C++
+- **Workflow**: GPS position → Mobileye lane transform → stored lane map
 ---
     `,
-    tags: ["Robotics", "Computer Vision", "HD Mapping", "Kalman Filter", "C++"],
+    tags: ["Mobileye", "Delphi", "scipy", "EKF", "C++", "GNSS"],
     category: "Robotics & Autonomy",
     date: "2020-05",
     imageUrl: "/assets/img/kia_thumbnail.jpg",
@@ -463,138 +588,57 @@ Part of a showcase at the North American International Auto Show (NAIAS).
     id: "autonomous-shuttle",
     title: "Autonomous Shuttle Deployment",
     description:
-      "Led deployment of two Level 4 autonomous shuttles for students with disabilities.",
+      "Led deployment of two Aurrigo Level 4 autonomous shuttles for accessible campus mobility.",
     fullDescription: `
 ---
-> Directed the operational deployment of two SAE Level 4 autonomous shuttles, providing accessible mobility solutions.
+> Directed the operational deployment of two SAE Level 4 autonomous shuttles, providing accessible mobility solutions on a university campus.
 
 ## Overview
-A real-world deployment interacting with pedestrians and mixed traffic.
+A real-world deployment interacting with pedestrians and mixed traffic, demonstrating the potential of autonomous last-mile mobility.
 
 ## Highlights
 - **Operational Design**: Developed comprehensive testing and safety protocols for campus deployment.
-- **Infrastructure**: Oversaw the installation of DSRC and RTK-GPS base stations.
+- **Infrastructure**: Oversaw the installation of RTK-GPS base stations for centimeter-level localization.
 - **Impact**: Successfully provided safe, last-mile transportation for over **20 students with disabilities**.
+
+## Tech Stack
+- **Platform**: Aurrigo autonomous shuttles (SAE Level 4)
+- **Localization**: RTK-GPS base stations, GPS/IMU fusion
+- **Safety**: Comprehensive ODD definition, pedestrian interaction protocols
 ---
     `,
-    tags: ["Leadership", "Robotics", "Project Management", "GPS/RTK", "SAE L4"],
+    tags: ["Leadership", "Aurrigo", "RTK-GPS", "SAE L4", "Accessibility"],
     category: "Leadership",
     date: "2019-12",
-    imageUrl: "/assets/img/udacity-thumbnail.jpg",
+    imageUrl: "/assets/img/autonomous-shuttle-wmich.jpg",
   },
   {
     id: "gravel-detection",
     title: "Road Edge Detection on Gravel",
     description:
-      "Custom computer vision model to detect drivable edges of unpaved roads.",
+      "Custom computer vision model to detect drivable edges of unpaved roads using stereo depth and texture analysis.",
     fullDescription: `
 ---
 > Developed a computer vision algorithm to identify drivable regions on unstructured, unpaved roads.
 
 ## Overview
-Unpaved roads lack the clear markings required by standard lane detectors.
+Unpaved roads lack the clear markings required by standard lane detectors. I built a custom pipeline combining depth sensing and texture analysis to segment the drivable surface.
 
-## Highlights
-- **Analysis**: Utilized texture gradients and color space analysis to segment gravel roads from surrounding foliage.
-- **Deployment**: Integrated the algorithm with a **ZED Stereo Camera** on a Kia Soul EV.
-- **Performance**: Achieved reliable real-time road edge detection in variable lighting conditions.
+## Features
+- **Texture Analysis**: Utilized texture gradients and color space analysis to segment gravel roads from surrounding foliage
+- **Stereo Depth**: Leveraged ZED camera depth maps to identify road plane geometry
+- **Real-Time**: Achieved reliable road edge detection in variable lighting conditions
+
+## Tech Stack
+- **Camera**: ZED Stereo Camera
+- **Libraries**: Python, OpenCV, ZED SDK
+- **Framework**: ROS (Melodic)
+- **Vehicle**: 2019 Kia Soul EV
 ---
     `,
-    tags: ["Computer Vision", "Python", "OpenCV"],
+    tags: ["Computer Vision", "Python", "OpenCV", "ZED", "ROS"],
     category: "AI & Computer Vision",
     date: "2020-09",
     imageUrl: "/assets/img/gravel-detection.jpg",
-  },
-  {
-    id: "realsim",
-    title: "RealSim 2.0 Digital Twin",
-    description:
-      "Standardized workflow for generating high-fidelity simulation environments from real-world logs.",
-    fullDescription: `
----
-> Established a robust pipeline for generating "Digital Twins" of real-world test tracks to validate AV algorithms in simulation.
-
-## Overview
-Closing the gap between simulation and reality is critical for safety validation.
-
-## Highlights
-- **Standardization**: Implemented **OpenDRIVE** and **OpenSCENARIO** standards for widespread compatibility.
-- **Fidelity**: Utilized high-density LiDAR scans to recreate track geometry with millimeter precision.
-- **Integration**: Validated the environments within the **CARLA simulator**, enabling massive concurrent testing.
----
-    `,
-    tags: ["System Architecture", "Simulation", "Digital Twin", "OpenDRIVE"],
-    category: "Edge & Systems",
-    date: "2024-11",
-    imageUrl: "/assets/img/placeholder.svg",
-  },
-  {
-    id: "robotic-arm",
-    title: "3-DOF Robotic Arm",
-    description:
-      "Designed and built a robotic arm to maximize 3D printer surface area.",
-    fullDescription: `
----
-> Designed and fabricated a custom 3-DOF robotic manipulator to extend the build volume of additive manufacturing systems.
-
-## Overview
-A mechatronics challenge integrating mechanical design and embedded control.
-
-## Highlights
-- **Mechanical Design**: Engineered a SCARA-like configuration to minimize inertia while maximizing reach.
-- **Control System**: Implemented inverse kinematics on an embedded **Arduino** controller driving precision stepper motors.
-- **Fabrication**: Utilized CNC and 3D printing to prototype and iterate on the linkage mechanisms.
----
-    `,
-    tags: ["Robotics", "Mechatronics", "Arduino", "C"],
-    category: "Robotics & Autonomy",
-    date: "2019-05",
-    imageUrl: "/assets/img/placeholder.svg",
-  },
-  {
-    id: "piezo-energy",
-    title: "Piezoelectric Energy Harvesting",
-    description:
-      "Designed device utilizing piezoelectric disks for energy generation from vibration.",
-    fullDescription: `
----
-> Prototyped a renewable energy harvesting device converting mechanical vibration into usable electrical power.
-
-## Overview
-Investigating alternative power sources for low-power IoT sensors.
-
-## Highlights
-- **Hardware**: Designed a resonant circuit utilizing piezoelectric transducers to capture ambient vibrations.
-- **Circuits**: Engineered the rectification and storage circuitry to buffer the intermittent energy bursts.
-- **Result**: Demonstrated a functional prototype capable of powering low-energy LED indicators solely from footsteps.
----
-    `,
-    tags: ["Robotics", "Hardware", "Prototyping"],
-    category: "Robotics & Autonomy",
-    date: "2018-05",
-    imageUrl: "/assets/img/placeholder.svg",
-  },
-  {
-    id: "flight-simulator",
-    title: "Flight Simulator Construction",
-    description:
-      "Built full-scale flight simulator hardware and integrated flight instruments.",
-    fullDescription: `
----
-> Engineered a full-scale flight simulation cockpit integrating physical instrumentation with simulation software.
-
-## Overview
-Creating an immersive training environment requires tight integration of hardware and software.
-
-## Highlights
-- **Integration**: Interfaced physical switch panels and flight yokes with **MATLAB** and X-Plane via UDP.
-- **Construction**: Designed and built the structural frame to support multi-monitor arrays and instrument panels.
-- **Fidelity**: Achieved a highly realistic training environment used for instrument rating practice.
----
-    `,
-    tags: ["System Architecture", "Mechatronics", "MATLAB"],
-    category: "Edge & Systems",
-    date: "2018-05",
-    imageUrl: "/assets/img/flight-simulator.jpg",
   },
 ];
